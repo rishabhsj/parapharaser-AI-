@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Para</title>
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/css/signup.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("button").click(function () {
+
+
+          $.ajax({
+            url: "/para",
+            data: $("form").serialize(),
+            type: "POST",
+            success: function (response) {
+            var res = JSON.parse(response)
+              alert(res["pt1"]);
+              alert(res["pt11"]);
+              alert(res["pt12"]);
+              alert(res["pt2"]);
+              alert(res["pt21"]);
+              alert(res["pt22"]);
+              alert(res["pt3"]);
+              alert(res["pt31"]);
+              alert(res["pt32"]);
+
+
+            },
+            error: function (error) {
+              console.log(error);
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <form class="form-signin" role="form">
+      <h2 class="form-signin-heading">Please Enter text</h2>
+        <input type="text" id="t1" name="t1" />
+        <input type="text" id="t2" name="t2" />
+        <input type="text" id="t3" name="t3" />
+
+      <button class="btn btn-lg btn-primary btn-block" type="button">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>
